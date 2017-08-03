@@ -1,10 +1,10 @@
 <?php 
 
     $deviceToken = $_REQUEST['token'];
-    // $deviceToken = 'b571226b510e2af143cbefaa5687d39eab2f0ec1081013742b9815b5751d1090';
     $message = $_REQUEST['message'];
     $title = $_REQUEST['title'];
-    // $message = "Test";
+    $num_of_badge = $_REQUEST['num_of_badge'];
+
     
 
     $passphrase = 'Notibrew';
@@ -15,10 +15,6 @@
     
     stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
     
-    // Open a connection to the APNS server
-    //'ssl://gateway.push.apple.com:2195'
-    // tls://gateway.sandbox.push.apple.com:2195
-    // $fp = stream_socket_client( 'ssl://gateway.push.apple.com:2195', $err, $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
     $fp = stream_socket_client( 'tls://gateway.sandbox.push.apple.com:2195', $err, $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
    
     if (!$fp)
@@ -29,7 +25,8 @@
         $body['aps'] = array(
                 'alert' => array(
                 'title'=>$title,
-                'body'=>$message
+                'body'=>$message,
+                'badge' => $num_of_badge
             ),
             'sound' => 'BeerSound.wav',
             'Person' =>array(
