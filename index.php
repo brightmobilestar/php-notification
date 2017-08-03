@@ -1,9 +1,10 @@
 <?php 
 
-    // $deviceToken = $_REQUEST['token'];
-    $deviceToken = 'b571226b510e2af143cbefaa5687d39eab2f0ec1081013742b9815b5751d1090';
-    // $msg = $_REQUEST['msg'];
-    $message = "Test";
+    $deviceToken = $_REQUEST['token'];
+    // $deviceToken = 'b571226b510e2af143cbefaa5687d39eab2f0ec1081013742b9815b5751d1090';
+    $message = $_REQUEST['message'];
+    $title = $_REQUEST['title'];
+    // $message = "Test";
     
 
     $passphrase = 'Notibrew';
@@ -27,7 +28,7 @@
     } else {
         $body['aps'] = array(
                 'alert' => array(
-                'title'=>'Alert title',
+                'title'=>$title,
                 'body'=>$message
             ),
             'sound' => 'BeerSound.wav',
