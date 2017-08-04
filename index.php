@@ -3,9 +3,7 @@
     $deviceToken = $_REQUEST['token'];
     $message = $_REQUEST['message'];
     $title = $_REQUEST['title'];
-    $num_of_badge = $_REQUEST['num_of_badge'];
-
-    
+    // $num_of_badge = $_REQUEST['num_of_badge'];    
 
     $passphrase = 'Notibrew';
     $path = 'Certificates-Dev-APN.pem';
@@ -25,7 +23,7 @@
         $body['aps'] = array(
                 'alert' => array(
                 'title'=>$title,
-                'body'=>$message,
+                'body'=>$message
                 // 'badge' => $num_of_badge
             ),
             'sound' => 'BeerSound.wav',
