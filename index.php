@@ -25,7 +25,7 @@
     } else {
         $body['aps'] = array(
                 'alert' => array(
-                'title'=>$title,
+                //  'title'=>$title,
                 'body'=>$message
                 // 'badge' => $num_of_badge
             ),
