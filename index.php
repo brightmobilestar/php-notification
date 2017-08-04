@@ -4,9 +4,7 @@
     $message = $_REQUEST['message'];
     $title = $_REQUEST['title'];
     $num_of_badge = $_REQUEST['num_of_badge'];
-
     
-
     $passphrase = 'Notibrew';
     $path = 'Certificates-Dev-APN.pem';
     $ctx = stream_context_create();
@@ -16,7 +14,9 @@
     stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
     
     $fp = stream_socket_client( 'tls://gateway.sandbox.push.apple.com:2195', $err, $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
-   
+    
+    echo $deviceToken;
+
     if (!$fp)
     {
         echo "Error Ocurred";
