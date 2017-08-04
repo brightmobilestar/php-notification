@@ -26,7 +26,7 @@
                 'alert' => array(
                 'title'=>$title,
                 'body'=>$message,
-                'badge' => $num_of_badge
+                // 'badge' => $num_of_badge
             ),
             'sound' => 'BeerSound.wav',
             'Person' =>array(
